@@ -4,10 +4,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Characters from "./pages/Characters";
 import Films from "./pages/Films";
 import Home from "./pages/Home";
-import Layout from "antd/lib/layout/layout";
+import Layout from "./pages/Layout";
 import Planets from "./pages/Planets";
 
-export default function App() {
+const App = () => {
   return (
     <BrowserRouter>
       <Routes>
@@ -21,3 +21,5 @@ export default function App() {
     </BrowserRouter>
   );
 }
+
+export default App;
