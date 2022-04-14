@@ -1,12 +1,12 @@
 import axios from "axios";
-import { ActionType } from "../action-types";
-import { Action } from "../actions";
+import { SwapiRequestActionType } from "../action-types";
+import { SwapiRequestAction } from "../actions";
 import { Dispatch } from "react";
 
 export const makeSwapiRequest = (resource: string, schema: string = "") => {
-  return async (dispatch: Dispatch<Action>) => {
+  return async (dispatch: Dispatch<SwapiRequestAction>) => {
     dispatch({
-      type: ActionType.SWAPI_REQUEST_LOADING,
+      type: SwapiRequestActionType.SWAPI_REQUEST_LOADING,
     });
 
     try {
@@ -15,12 +15,12 @@ export const makeSwapiRequest = (resource: string, schema: string = "") => {
       );
 
       dispatch({
-        type: ActionType.SWAPI_REQUEST_SUCCESS,
+        type: SwapiRequestActionType.SWAPI_REQUEST_SUCCESS,
         payload: data,
       });
     } catch (err: any) {
       dispatch({
-        type: ActionType.SWAPI_REQUEST_ERROR,
+        type: SwapiRequestActionType.SWAPI_REQUEST_ERROR,
         payload: err.message,
       });
     }
