@@ -1,4 +1,3 @@
-import React from "react";
 import { PageHeader, Divider } from "antd";
 
 const Home = () => {

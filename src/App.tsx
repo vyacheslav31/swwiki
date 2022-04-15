@@ -1,12 +1,10 @@
 import React from "react";
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Characters from "./pages/Characters";
-import Films from "./pages/Films";
 import Home from "./pages/Home";
 import Layout from "./pages/Layout";
-import Planets from "./pages/Planets";
 import { SwapiRequestProvider } from "./state/SwapiRequest/context-provider";
+import SwapiResourcePage from "./pages/SwapiResourcePage";
 
 const App = () => {
   return (
@@ -15,9 +13,9 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="characters" element={<Characters />} />
-            <Route path="films" element={<Films />} />
-            <Route path="planets" element={<Planets />} />
+            <Route path="characters" element={<SwapiResourcePage resourceType={"people"}/>} />
+            <Route path="films" element={<SwapiResourcePage resourceType={"films"}/>} />
+            <Route path="planets" element={<SwapiResourcePage resourceType={"planets"}/>} />
           </Route>
         </Routes>
       </BrowserRouter>
