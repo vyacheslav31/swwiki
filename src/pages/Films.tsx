@@ -1,15 +1,22 @@
 import { useContext, useEffect } from "react";
 import { SwapiRequestContext } from "../state/SwapiRequest/context";
 import { makeSwapiRequest } from "../state/SwapiRequest/action-creator";
+import { PageHeader, Divider } from "antd";
 
 const Films = () => {
   const { state, dispatch } = useContext(SwapiRequestContext);
-  const { loading, error, data } = state;
-  console.log(data.results);
+  const { data } = state;
+
   useEffect(() => {
     makeSwapiRequest(dispatch, "films");
-  }, [dispatch]);
-  return <h1>Films</h1>;
+  }, []);
+
+  return (
+    <>
+      <PageHeader className="site-page-header" title="Films" />
+      <Divider />
+    </>
+  );
 };
 
 export default Films;

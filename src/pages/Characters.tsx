@@ -1,24 +1,24 @@
 import React, { useContext, useEffect } from "react";
 import { SwapiRequestContext } from "../state/SwapiRequest/context";
 import { makeSwapiRequest } from "../state/SwapiRequest/action-creator";
-import { Card } from "antd";
-import { Character } from "../types/character";
+import CardList from "../components/Cards/CardList";
+import { PageHeader, Divider } from "antd";
 
 const Characters: React.FC = () => {
   const { state, dispatch } = useContext(SwapiRequestContext);
-  const { loading, error, data } = state;
+  const { data } = state;
+  const characters = data.results;
 
   useEffect(() => {
     makeSwapiRequest(dispatch, "people");
   }, []);
 
   return (
-    <React.Fragment>
-      <h1>Characters</h1>
-      {loading && "Now loading characters..."}
-      {error && "Error fetching characters ..."}
-      {cardList}
-    </React.Fragment>
+    <>
+      <PageHeader className="site-page-header" title="Characters" />
+      <Divider />
+      <CardList data={characters} />
+    </>
   );
 };
 

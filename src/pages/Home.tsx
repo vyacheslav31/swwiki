@@ -1,7 +1,13 @@
-import * as React from "react";
+import React from "react";
+import { PageHeader, Divider } from "antd";
 
 const Home = () => {
-  return <h1>Home</h1>;
+  return (
+    <>
+      <PageHeader className="site-page-header" title="Home" style={{}} />
+      <Divider />
+    </>
+  );
 };
 
 export default Home;
