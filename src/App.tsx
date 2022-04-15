@@ -6,20 +6,23 @@ import Films from "./pages/Films";
 import Home from "./pages/Home";
 import Layout from "./pages/Layout";
 import Planets from "./pages/Planets";
+import { SwapiRequestProvider } from "./state/SwapiRequest/context-provider";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="characters" element={<Characters />} />
-          <Route path="films" element={<Films />} />
-          <Route path="planets" element={<Planets />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <SwapiRequestProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="characters" element={<Characters />} />
+            <Route path="films" element={<Films />} />
+            <Route path="planets" element={<Planets />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </SwapiRequestProvider>
   );
-}
+};
 
 export default App;
