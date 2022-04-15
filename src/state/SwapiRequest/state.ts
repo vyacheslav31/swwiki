@@ -10,7 +10,7 @@ export const emptySwapiResponse: SwapiResponse = {
   count: 0,
   next: null,
   previous: null,
-  results: [{}],
+  results: [],
 };
 
 export const swapiRequestInitialState: SwapiRequestActionState = {
