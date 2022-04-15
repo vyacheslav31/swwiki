@@ -8,13 +8,13 @@ const Layout = () => {
         <Menu.Item key="home">
           <Link to="/">Home</Link>
         </Menu.Item>
-        <Menu.Item>
+        <Menu.Item key="characters">
           <Link to="/characters">Characters</Link>
         </Menu.Item>
-        <Menu.Item>
+        <Menu.Item key="films">
           <Link to="/films">Films</Link>
         </Menu.Item>
-        <Menu.Item>
+        <Menu.Item key="planets">
           <Link to="/planets">Planets</Link>
         </Menu.Item>
       </Menu>

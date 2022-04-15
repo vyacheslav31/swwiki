@@ -17,7 +17,7 @@ const SwapiResourcePage: React.FC<SwapiResourcePageProps> = ({
 
   useEffect(() => {
     makeSwapiRequest(dispatch, resourceType);
-  }, []);
+  }, [dispatch, resourceType]);
 
   console.log(resourceType);
 
