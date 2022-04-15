@@ -4,20 +4,13 @@ import { makeSwapiRequest } from "../state/SwapiRequest/action-creator";
 import { Card } from "antd";
 import { Character } from "../types/character";
 
-const Characters = () => {
+const Characters: React.FC = () => {
   const { state, dispatch } = useContext(SwapiRequestContext);
   const { loading, error, data } = state;
 
   useEffect(() => {
     makeSwapiRequest(dispatch, "people");
   }, []);
-
-  const cardList: JSX.Element | JSX.Element[] = data.results.map(
-    (character: Character) => {
-      const name = character.name;
-      return <Card key={1} title={name} />;
-    }
-  );
 
   return (
     <React.Fragment>
