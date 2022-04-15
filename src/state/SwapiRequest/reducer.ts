@@ -15,11 +15,7 @@ export const SwapiRequestReducer = (
     case SwapiRequestType.SWAPI_REQUEST_SUCCESS:
       return { loading: false, error: null, data: action.payload };
     case SwapiRequestType.SWAPI_REQUEST_ERROR:
-      return {
-        loading: false,
-        error: action.payload,
-        data: emptySwapiResponse,
-      };
+      return { loading: false, error: action.payload, data: emptySwapiResponse };
     default:
       return state;
   }
