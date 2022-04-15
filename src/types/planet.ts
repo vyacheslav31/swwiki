@@ -1,4 +1,5 @@
-import { SwapiResource } from "."
+import SwapiResource from "./SwapiResource"
+
 export interface Planet extends SwapiResource {
 diameter: string;
 rotation_period: string;

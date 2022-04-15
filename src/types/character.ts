@@ -1,4 +1,4 @@
-import { SwapiResource } from ".";
+import SwapiResource from "./SwapiResource";
 
 export interface Character extends SwapiResource {
   birth_year: string;

@@ -1,4 +1,4 @@
-import React, { ImgHTMLAttributes } from "react";
+import React from "react";
 import { Col, Card } from "antd";
 
 interface SwapiResourceCardProps {
@@ -15,7 +15,9 @@ const SwapiResourceCard: React.FC<SwapiResourceCardProps> = ({
   colSpan,
 }) => {
   const { Meta } = Card;
-  const imgFallback = "https://starwars-visualguide.com/assets/img/big-placeholder.jpg";
+  const imgFallback =
+    "https://starwars-visualguide.com/assets/img/big-placeholder.jpg";
+
   return (
     <>
       <Col span={colSpan}>
@@ -25,7 +27,10 @@ const SwapiResourceCard: React.FC<SwapiResourceCardProps> = ({
             <img
               alt={`An portrait of ${name}`}
               src={`https://starwars-visualguide.com/assets/img/${resourceType}/${id}.jpg`}
-              onError={({currentTarget}) => (currentTarget.onerror= null, currentTarget.src =  imgFallback)}
+              onError={({ currentTarget }) => (
+                (currentTarget.onerror = null),
+                (currentTarget.src = imgFallback)
+              )}
             />
           }
           key={name}

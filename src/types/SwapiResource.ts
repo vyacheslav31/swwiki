@@ -1,4 +1,4 @@
-export interface SwapiResource  {
+export default interface SwapiResource  {
     created: string;
     edited: string;
     name: string;

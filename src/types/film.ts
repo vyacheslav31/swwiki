@@ -1,4 +1,4 @@
-import { SwapiResource } from ".";
+import SwapiResource from "./SwapiResource";
 
 export interface Film extends SwapiResource  {
   title: string;

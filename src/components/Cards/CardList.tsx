@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Card } from "antd";
 import SwapiResourceCard from "./SwapiResourceCard";
-import { SwapiResource } from '../../types';
+import SwapiResource from '../../types/SwapiResource';
 
 
 interface CardListProps {

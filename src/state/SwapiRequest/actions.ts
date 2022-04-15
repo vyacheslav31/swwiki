@@ -8,7 +8,7 @@ export type SwapiResponse = {
   count: number;
   next: string | null;
   previous: string | null;
-  results: [] | any;
+  results: any;
 };
 
 export interface SwapiRequestLoadingAction {

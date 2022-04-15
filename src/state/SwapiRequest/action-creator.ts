@@ -5,14 +5,11 @@ import { SwapiRequestType } from "./actions";
 
 export const makeSwapiRequest = async (
   dispatch: Dispatch<SwapiRequestAction>,
-  resource: string,
-  schema: string = ""
+  resource: string
 ) => {
   dispatch({ type: SwapiRequestType.SWAPI_REQUEST_LOADING });
   let requestUrl = `https://swapi.dev/api/${resource}`;
-  if (schema) {
-    requestUrl += `/${schema}`;
-  }
+
   try {
     const { data } = await axios.get(requestUrl);
     dispatch({

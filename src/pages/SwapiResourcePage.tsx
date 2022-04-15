@@ -19,8 +19,6 @@ const SwapiResourcePage: React.FC<SwapiResourcePageProps> = ({
     makeSwapiRequest(dispatch, resourceType);
   }, [dispatch, resourceType]);
 
-  console.log(resourceType);
-
   return (
     <>
       <PageHeader
