@@ -1,6 +1,6 @@
 import SwapiResource from "./SwapiResource";
 
-export interface Film extends SwapiResource  {
+export default interface Film extends SwapiResource {
   title: string;
   episode_id: number;
   opening_crawl: string;
@@ -11,4 +11,4 @@ export interface Film extends SwapiResource  {
   vehicles: string[];
   characters: string[];
   planets: string[];
-};
+}

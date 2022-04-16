@@ -23,7 +23,6 @@ const SwapiResourceCard: React.FC<SwapiResourceCardProps> = ({
 
   return (
     <>
-
       <Col span={colSpan}>
         <Link to={`/${resourceType}/${id}`}>
           <Card
