@@ -5,20 +5,21 @@ import SwapiResource from '../../types/SwapiResource';
 
 
 interface CardListProps {
-  data: [];
+  data: [SwapiResource];
   resourceType: string;
+  loading: boolean;
 }
 
 const CardList: React.FC<CardListProps> = (
   props: React.PropsWithChildren<CardListProps>
 ) => {
-  let id = 0;
   const resourceCards = props.data.map((resource: SwapiResource) => {
-    id += 1;
-    return <SwapiResourceCard key={resource.name || resource.title } id={id} name={resource.title || resource.name} resourceType={props.resourceType} colSpan={8} />;
+    resource.name = resource.name || resource.title;
+    const id = parseInt(resource.url.match(/\d+/)!.join(""));
+    return <SwapiResourceCard key={resource.name} id={id} name={resource.name} resourceType={props.resourceType} colSpan={8} />;
   });
   return (
-    <Card>
+    <Card loading={props.loading} size="default">
       <Row gutter={16}>{resourceCards}</Row>
     </Card>
   );

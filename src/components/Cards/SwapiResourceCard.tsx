@@ -1,7 +1,8 @@
 import React from "react";
 import { Col, Card } from "antd";
+import mapResourcesToImages from "../../helpers/mapResourcesToImages";
 
-interface SwapiResourceCardProps {
+export interface SwapiResourceCardProps {
   id: number;
   name: string;
   resourceType: string;
@@ -17,6 +18,7 @@ const SwapiResourceCard: React.FC<SwapiResourceCardProps> = ({
   const { Meta } = Card;
   const imgFallback =
     "https://starwars-visualguide.com/assets/img/big-placeholder.jpg";
+  resourceType = mapResourcesToImages(resourceType);
 
   return (
     <>

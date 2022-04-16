@@ -1,8 +1,10 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { SwapiRequestContext } from "../state/SwapiRequest/context";
 import { makeSwapiRequest } from "../state/SwapiRequest/action-creator";
 import CardList from "../components/Cards/CardList";
 import { PageHeader, Divider } from "antd";
+import { Pagination } from 'antd'
+import { useLocation } from "react-router";
 
 interface SwapiResourcePageProps {
   resourceType: string;
@@ -11,13 +13,23 @@ interface SwapiResourcePageProps {
 const SwapiResourcePage: React.FC<SwapiResourcePageProps> = ({
   resourceType,
 }) => {
-  const { state, dispatch } = useContext(SwapiRequestContext);
-  const { data } = state;
+  const { state: requestState, dispatch: requestDispatch } = useContext(SwapiRequestContext);
+  const { loading, data } = requestState;
   const resources = data.results;
+  const [pageNumber, setPageNumber] = useState(1);
+  const location = useLocation();
+
+  const pageOnChangeHandler = (newPageNumber: number) => {
+    setPageNumber(newPageNumber);
+  }
 
   useEffect(() => {
-    makeSwapiRequest(dispatch, resourceType);
-  }, [dispatch, resourceType]);
+    setPageNumber(1)
+  }, [location]);
+
+  useEffect(() => {
+    makeSwapiRequest(requestDispatch, resourceType, pageNumber);
+  }, [requestDispatch, resourceType, pageNumber]);
 
   return (
     <>
@@ -26,7 +38,8 @@ const SwapiResourcePage: React.FC<SwapiResourcePageProps> = ({
         title={resourceType.charAt(0).toUpperCase() + resourceType.slice(1)}
       />
       <Divider />
-      <CardList data={resources} resourceType={resourceType} />
+      <Pagination onChange={pageOnChangeHandler} current={pageNumber} total={data.count} showSizeChanger={false} style={{ padding: "20px" }} />
+      <CardList loading={loading} data={resources} resourceType={resourceType} />
     </>
   );
 };
