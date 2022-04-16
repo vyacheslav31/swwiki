@@ -14,6 +14,8 @@ export const SwapiRequestProvider = ({
     SwapiRequestReducer,
     swapiRequestInitialState
   );
+
+  console.log(state);
   return (
     <SwapiRequestContext.Provider value={{ state, dispatch }}>
       {children}

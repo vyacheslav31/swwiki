@@ -18,6 +18,8 @@ const SwapiResourcePage: React.FC<SwapiResourcePageProps> = ({
   const resources = data.results;
   const [pageNumber, setPageNumber] = useState(1);
   const location = useLocation();
+  const [loaded, setLoaded] = useState(false);
+  const submitSwapiRequest = makeSwapiRequest(resourceType, pageNumber);
 
   const pageOnChangeHandler = (newPageNumber: number) => {
     setPageNumber(newPageNumber);
@@ -28,8 +30,15 @@ const SwapiResourcePage: React.FC<SwapiResourcePageProps> = ({
   }, [location]);
 
   useEffect(() => {
-    makeSwapiRequest(requestDispatch, resourceType, pageNumber);
-  }, [requestDispatch, resourceType, pageNumber]);
+    if (!loading) {
+      submitSwapiRequest(requestDispatch);
+    }
+    if (data.results) {
+      setLoaded(true);
+    }
+  }, [pageNumber, resourceType]);
+
+
 
   return (
     <>
@@ -39,7 +48,7 @@ const SwapiResourcePage: React.FC<SwapiResourcePageProps> = ({
       />
       <Divider />
       <Pagination onChange={pageOnChangeHandler} current={pageNumber} total={data.count} showSizeChanger={false} style={{ padding: "20px" }} />
-      <CardList loading={loading} data={resources} resourceType={resourceType} />
+      {loaded && <CardList loading={loading} data={resources} resourceType={resourceType} />}
     </>
   );
 };

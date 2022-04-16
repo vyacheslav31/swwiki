@@ -16,9 +16,9 @@ const SwapiResourceDetailsPage: React.FC<SwapiResourceDetailsPageProps> = ({ res
     const { state: requestState, dispatch: requestDispatch } = useContext(SwapiRequestContext);
     const { data: resource } = requestState;
 
-    useEffect(() => {
-        makeSwapiRequest(requestDispatch, resourceType, undefined, params.id);
-    }, [requestDispatch, params.id, resourceType]);
+    // useEffect(() => {
+    //     makeSwapiRequest(requestDispatch, resourceType, undefined, params.id);
+    // }, []);
 
 
     return (
