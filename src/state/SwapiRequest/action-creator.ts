@@ -6,8 +6,8 @@ import { SwapiRequestType } from "./actions";
 export const makeSwapiRequest = async (
   dispatch: Dispatch<SwapiRequestAction>,
   resource: string,
-  page: number,
-  schema: number | undefined = undefined
+  page: number | undefined = undefined,
+  schema: string | undefined = undefined
 ) => {
   dispatch({ type: SwapiRequestType.SWAPI_REQUEST_LOADING });
 
