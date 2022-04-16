@@ -1,6 +1,7 @@
 import React from "react";
 import { Col, Card } from "antd";
 import mapResourcesToImages from "../../helpers/mapResourcesToImages";
+import { Link } from "react-router-dom";
 
 export interface SwapiResourceCardProps {
   id: number;
@@ -22,23 +23,26 @@ const SwapiResourceCard: React.FC<SwapiResourceCardProps> = ({
 
   return (
     <>
+
       <Col span={colSpan}>
-        <Card
-          style={{ width: 200, alignContent: "center", margin: "4px" }}
-          cover={
-            <img
-              alt={`An portrait of ${name}`}
-              src={`https://starwars-visualguide.com/assets/img/${resourceType}/${id}.jpg`}
-              onError={({ currentTarget }) => (
-                (currentTarget.onerror = null),
-                (currentTarget.src = imgFallback)
-              )}
-            />
-          }
-          key={name}
-        >
-          <Meta title={name} />
-        </Card>
+        <Link to={`/${resourceType}/${id}`}>
+          <Card
+            style={{ width: 200, alignContent: "center", margin: "4px" }}
+            cover={
+              <img
+                alt={`An portrait of ${name}`}
+                src={`https://starwars-visualguide.com/assets/img/${resourceType}/${id}.jpg`}
+                onError={({ currentTarget }) => (
+                  (currentTarget.onerror = null),
+                  (currentTarget.src = imgFallback)
+                )}
+              />
+            }
+            key={name}
+          >
+            <Meta title={name} />
+          </Card>
+        </Link>
       </Col>
     </>
   );
