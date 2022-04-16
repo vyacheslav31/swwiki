@@ -5,6 +5,7 @@ import CardList from "../components/Cards/CardList";
 import { PageHeader, Divider } from "antd";
 import { Pagination } from "antd";
 import { useLocation } from "react-router";
+import { useSearchParams } from "react-router-dom";
 
 interface SwapiResourcePageProps {
   resourceType: string;
@@ -18,27 +19,24 @@ const SwapiResourcePage: React.FC<SwapiResourcePageProps> = ({
   );
   const { loading, data } = requestState;
   const resources = data.results;
-  const [pageNumber, setPageNumber] = useState(1);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const pageNumber = parseInt(searchParams.get('page')!)
   const location = useLocation();
   const [loaded, setLoaded] = useState(false);
-  const submitSwapiRequest = makeSwapiRequest(resourceType, pageNumber);
 
   const pageOnChangeHandler = (newPageNumber: number) => {
-    setPageNumber(newPageNumber);
+    setSearchParams({"page" : newPageNumber.toString()});
   };
 
   useEffect(() => {
-    setPageNumber(1);
-  }, [location]);
-
-  useEffect(() => {
     if (!loading) {
+      const submitSwapiRequest = makeSwapiRequest(resourceType, pageNumber);
       submitSwapiRequest(requestDispatch);
     }
     if (data.results) {
       setLoaded(true);
     }
-  }, [location, pageNumber]);
+  }, [location, searchParams]);
 
   return (
     <>

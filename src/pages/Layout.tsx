@@ -11,13 +11,13 @@ const Layout = () => {
           <Link to="/">Home</Link>
         </Menu.Item>
         <Menu.Item key="characters">
-          <Link to="/characters">Characters</Link>
+          <Link to="/characters?page=1">Characters</Link>
         </Menu.Item>
-        <Menu.Item key="films">
-          <Link to="/films">Films</Link>
+        <Menu.Item key="films?page=1">
+          <Link to="/films?page=1">Films</Link>
         </Menu.Item>
         <Menu.Item key="planets">
-          <Link to="/planets">Planets</Link>
+          <Link to="/planets?page=1">Planets</Link>
         </Menu.Item>
       </Menu>
       <Outlet />

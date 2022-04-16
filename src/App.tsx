@@ -9,9 +9,9 @@ import RouterProvider from "./state/Router/context-provider";
 
 const App = () => {
   return (
-    <RouterProvider>
-      <SwapiRequestProvider>
-        <Router>
+    <SwapiRequestProvider>
+      <Router>
+        <RouterProvider>
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
@@ -41,9 +41,9 @@ const App = () => {
               />
             </Route>
           </Routes>
-        </Router>
-      </SwapiRequestProvider>
-    </RouterProvider>
+        </RouterProvider>
+      </Router>
+    </SwapiRequestProvider>
   );
 };
 
