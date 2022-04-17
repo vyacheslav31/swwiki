@@ -19,6 +19,8 @@ export const makeSwapiRequest = (
 
     try {
       await axios.get(requestUrl).then((result) => {
+        console.log(result);
+        
         dispatch({
           type: SwapiRequestType.SWAPI_REQUEST_SUCCESS,
           payload: result.data,

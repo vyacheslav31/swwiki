@@ -1,9 +1,10 @@
+import SwapiResource from "../../types/SwapiResource";
 import { SwapiResponse } from "./actions";
 
 export interface SwapiRequestActionState {
   loading: boolean;
   error: string | null;
-  data: SwapiResponse;
+  data: SwapiResponse | SwapiResource;
 }
 
 export const emptySwapiResponse: SwapiResponse = {

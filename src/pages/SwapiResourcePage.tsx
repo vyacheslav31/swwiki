@@ -30,8 +30,8 @@ const SwapiResourcePage: React.FC<SwapiResourcePageProps> = ({
 
   useEffect(() => {
     if (!loading) {
-      const submitSwapiRequest = makeSwapiRequest(resourceType, pageNumber);
-      submitSwapiRequest(requestDispatch);
+      const dispatchSwapiRequest = makeSwapiRequest(resourceType, pageNumber);
+      dispatchSwapiRequest(requestDispatch);
     }
     if (data.results) {
       setLoaded(true);
