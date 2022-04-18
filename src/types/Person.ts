@@ -1,6 +1,6 @@
 import SwapiResource from "./SwapiResource";
 
-export default interface Character extends SwapiResource {
+export default interface Person extends SwapiResource {
   birth_year: string;
   eye_color: string;
   gender: string;

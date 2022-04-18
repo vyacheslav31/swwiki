@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { Row, Card } from "antd";
+import React from "react";
+import { Row } from "antd";
 import SwapiResourceCard from "./SwapiResourceCard";
 import SwapiResource from "../../types/SwapiResource";
 
@@ -22,14 +22,13 @@ const CardList: React.FC<CardListProps> = (
         id={id}
         name={resource.name}
         resourceType={props.resourceType}
-        colSpan={8}
       />
     );
   });
   return (
-    <Card loading={props.loading} size="default">
-      <Row gutter={16}>{resourceCards}</Row>
-    </Card>
+    <div className="site-card-wrapper" style={{padding: '1rem'}}>
+      <Row gutter={20} justify="center">{resourceCards}</Row>
+    </div>
   );
 };
 

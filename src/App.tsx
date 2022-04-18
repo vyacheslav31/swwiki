@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Layout from "./pages/Layout";
 import SwapiRequestProvider from "./state/SwapiRequest/context-provider";
-import SwapiResourcePage from "./pages/SwapiResourcePage";
 import SwapiResourceDetailsPage from "./pages/SwapiResourceDetailsPage";
 import RouterProvider from "./state/Router/context-provider";
+import ValidateQueryParam from "./components/ValidateQueryParam";
 
 const App = () => {
   return (
@@ -16,16 +16,16 @@ const App = () => {
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
               <Route
-                path="characters"
-                element={<SwapiResourcePage resourceType={"people"} />}
+                path="people"
+                element={<ValidateQueryParam resourceType={"people"} />}
               />
               <Route
-                path="characters/:id"
+                path="people/:id"
                 element={<SwapiResourceDetailsPage resourceType={"people"} />}
               />
               <Route
                 path="films"
-                element={<SwapiResourcePage resourceType={"films"} />}
+                element={<ValidateQueryParam resourceType={"films"} />}
               />
               <Route
                 path="films/:id"
@@ -33,12 +33,13 @@ const App = () => {
               />
               <Route
                 path="planets"
-                element={<SwapiResourcePage resourceType={"planets"} />}
+                element={<ValidateQueryParam resourceType={"planets"} />}
               />
               <Route
                 path="planets/:id"
                 element={<SwapiResourceDetailsPage resourceType={"planets"} />}
               />
+              {/* <Route path="*" element={<Home />} /> */}
             </Route>
           </Routes>
         </RouterProvider>

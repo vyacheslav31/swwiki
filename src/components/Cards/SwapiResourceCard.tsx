@@ -1,41 +1,31 @@
 import React from "react";
 import { Col, Card } from "antd";
-import mapResourcesToImages from "../../helpers/mapResourcesToImages";
 import { Link } from "react-router-dom";
+import SwapiResourceImage from "../SwapiResourceImage";
+
 
 export interface SwapiResourceCardProps {
   id: number;
   name: string;
   resourceType: string;
-  colSpan: number;
 }
 
 const SwapiResourceCard: React.FC<SwapiResourceCardProps> = ({
   id,
   name,
-  resourceType,
-  colSpan,
+  resourceType
 }) => {
   const { Meta } = Card;
-  const imgFallback =
-    "https://starwars-visualguide.com/assets/img/big-placeholder.jpg";
-  resourceType = mapResourcesToImages(resourceType);
-
   return (
     <>
-      <Col span={colSpan}>
+      <Col className="gutter-row" span={4}>
         <Link to={`/${resourceType}/${id}`}>
           <Card
-            style={{ width: 200, alignContent: "center", margin: "4px" }}
+            type="inner"
+            hoverable
+            style={{ alignContent: "center", marginTop: "12px" }}
             cover={
-              <img
-                alt={`An portrait of ${name}`}
-                src={`https://starwars-visualguide.com/assets/img/${resourceType}/${id}.jpg`}
-                onError={({ currentTarget }) => (
-                  (currentTarget.onerror = null),
-                  (currentTarget.src = imgFallback)
-                )}
-              />
+              <SwapiResourceImage id={id} resourceName={name} resourceType={resourceType} />
             }
             key={name}
           >
