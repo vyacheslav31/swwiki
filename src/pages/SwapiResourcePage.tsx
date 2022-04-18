@@ -8,6 +8,7 @@ import { useLocation } from "react-router";
 import { useSearchParams } from "react-router-dom";
 import ucfirst from "../helpers/ucfirst";
 import validatePageNumber from "../helpers/validatePageNumber";
+import Text from "antd/lib/typography/Text";
 
 interface SwapiResourcePageProps {
   resourceType: string;
@@ -28,7 +29,7 @@ const SwapiResourcePage: React.FC<SwapiResourcePageProps> = ({
   };
 
   useEffect(() => {
-    if (!loading && validatePageNumber(resourceType, pageNumber)) {
+    if (!loading && pageNumber && validatePageNumber(resourceType, pageNumber)) {
       const dispatchSwapiRequest = makeSwapiRequest(resourceType, pageNumber);
       dispatchSwapiRequest(dispatch);
     }
@@ -37,7 +38,8 @@ const SwapiResourcePage: React.FC<SwapiResourcePageProps> = ({
 
   return (
     <>
-      <Title level={4} style={{ paddingTop: "2rem", paddingLeft: "2rem" }}>{ucfirst(resourceType)}</Title>
+      <Title level={4} style={{ paddingTop: "2rem", paddingLeft: "1rem" }}>&gt; {ucfirst(resourceType)}</Title>
+      <Text>Please click on the resource portraits below to view more information about them.</Text>
       <Divider />
       <Pagination
         onChange={pageOnChangeHandler}

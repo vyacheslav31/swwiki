@@ -5,9 +5,10 @@ interface SwapiResourceImageProps {
     id: number
     resourceName: string;
     resourceType: string;
+    style?: React.CSSProperties
 }
 
-const SwapiResourceImage: React.FC<SwapiResourceImageProps> = ({ id, resourceName, resourceType }) => {
+const SwapiResourceImage: React.FC<SwapiResourceImageProps> = ({ id, resourceName, resourceType, style }) => {
     resourceType = resourceType === 'people' ? 'characters' : resourceType;
     const imgSrc = `https://starwars-visualguide.com/assets/img/${resourceType}/${id}.jpg`
     const imgFallback = "https://starwars-visualguide.com/assets/img/big-placeholder.jpg";
@@ -16,7 +17,7 @@ const SwapiResourceImage: React.FC<SwapiResourceImageProps> = ({ id, resourceNam
         (currentTarget as HTMLImageElement).src = imgFallback;
     };
     return (
-        <img src={imgSrc} alt={`An portrait of ${resourceName}`} onError={onErrorHandler} />
+        <img style={style} src={imgSrc} alt={`An portrait of ${resourceName}`} onError={onErrorHandler} />
     );
 };
 

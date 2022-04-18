@@ -38,12 +38,16 @@ const SwapiResourceDetailsPage: React.FC<SwapiResourceDetailsPageProps> = ({
 
   return (
     <Layout className="site-layout-background" style={{ padding: '24px 0', background: '#fff', marginTop: '3rem' }}>
-      <Content style={{ padding: '0 24px', minHeight: 320 }}>
-        {loaded
-          && <SwapiResourceImage id={parseInt(params.id!)} resourceName={resourceName} resourceType={resourceType} />
-          && <PageHeader title={resourceName}></PageHeader>
-          && <Descriptions bordered>{details}</Descriptions>
-        }
+      <Content style={{ padding: '0 24px', minHeight: 680 }}>
+        <PageHeader title={resourceName}></PageHeader>
+        <Layout style={{ backgroundColor: "#fff" }}>
+          {loaded && <Descriptions bordered>
+            <Descriptions.Item key={"Portrait"} label={"Portrait"}>
+              <SwapiResourceImage id={parseInt(params.id!)} resourceName={resourceName} resourceType={resourceType} style={{ borderRadius: "50%", height: 200, width: 200, objectFit: "cover" }} />
+            </Descriptions.Item>
+            {details}
+          </Descriptions>}
+        </Layout>
       </Content>
     </Layout>
   );
