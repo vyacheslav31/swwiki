@@ -4,10 +4,10 @@ import { useContext, useEffect, useState } from "react";
 import SwapiRequestContext from "../state/SwapiRequest/context";
 import { makeSwapiRequest } from "../state/SwapiRequest/action-creator";
 import SwapiResource from '../types/SwapiResource'
-import { Descriptions, Layout, PageHeader, Avatar } from "antd";
+import { Descriptions, Layout, PageHeader} from "antd";
 import { Content } from "antd/lib/layout/layout";
 import SwapiResourceImage from "../components/SwapiResourceImage";
-
+import {Row, Col} from 'antd';
 interface SwapiResourceDetailsPageProps {
   resourceType: string;
 }
@@ -23,6 +23,7 @@ const SwapiResourceDetailsPage: React.FC<SwapiResourceDetailsPageProps> = ({
   const [loaded, setLoaded] = useState(false);
   const details: JSX.Element[] = []
   const resourceName = (data as SwapiResource).name || (data as SwapiResource).title;
+  const id = parseInt(params.id!);
 
   useEffect(() => {
     if (!loading) {
@@ -38,16 +39,20 @@ const SwapiResourceDetailsPage: React.FC<SwapiResourceDetailsPageProps> = ({
 
   return (
     <Layout className="site-layout-background" style={{ padding: '24px 0', background: '#fff', marginTop: '3rem' }}>
-      <Content style={{ padding: '0 24px', minHeight: 680 }}>
+      <Content style={{ padding: '0 24px'}}>
         <PageHeader title={resourceName}></PageHeader>
-        <Layout style={{ backgroundColor: "#fff" }}>
-          {loaded && <Descriptions bordered>
-            <Descriptions.Item key={"Portrait"} label={"Portrait"}>
-              <SwapiResourceImage id={parseInt(params.id!)} resourceName={resourceName} resourceType={resourceType} style={{ borderRadius: "50%", height: 200, width: 200, objectFit: "cover" }} />
-            </Descriptions.Item>
-            {details}
-          </Descriptions>}
-        </Layout>
+        <Row wrap={false}>
+        <Col style={{overflow: "hidden"}} flex={2}>
+          <SwapiResourceImage style={{maxWidth: "100%", maxHeight: "100%", display: "block"}} id={id} resourceType={resourceType} resourceName={resourceName}/>
+        </Col>
+          {loaded && 
+          <Col flex={3}>
+            <Descriptions bordered>
+              {details}
+            </Descriptions>
+          </Col>
+          }
+        </Row>
       </Content>
     </Layout>
   );
