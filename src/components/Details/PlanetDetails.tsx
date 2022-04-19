@@ -1,3 +1,4 @@
+import { Card } from "antd";
 import Planet from "../../types/Planet";
 
 interface PlanetDetailsProps {
@@ -6,7 +7,7 @@ interface PlanetDetailsProps {
 
 const PlanetDetails: React.FC<PlanetDetailsProps> = ({ planet }) => {
   return (
-    <>
+    <Card style={{flex: 3}}>
       <p>Name: {planet.name}</p>
       <p>Population: {planet.population}</p>
       <p>Orbital Period: {planet.orbital_period}</p>
@@ -15,7 +16,7 @@ const PlanetDetails: React.FC<PlanetDetailsProps> = ({ planet }) => {
       <p>Terrain: {planet.terrain}</p>
       <p>Surface Water: {planet.surface_water}</p>
       <p>Climate: {planet.climate}</p>
-    </>
+    </Card>
   );
 };
 

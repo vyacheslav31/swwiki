@@ -43,25 +43,19 @@ const SwapiResourceDetailsPage: React.FC<SwapiResourceDetailsPageProps> = ({
       style={{ padding: "24px 0", background: "#fff", marginTop: "3rem" }}
     >
       <Content style={{ padding: "0 24px" }}>
-        <PageHeader title={resource.name}></PageHeader>
-        <Row wrap={false}>
-          <Col style={{ overflow: "hidden" }} flex={2}>
-            <SwapiResourceImage
-              style={{ maxWidth: "100%", maxHeight: "100%", display: "block" }}
-              id={id}
-              resourceType={resourceType}
-              resourceName={resource.name!}
-            />
-          </Col>
-          {loaded && (
-            <Col flex={3}>
-              <SwapiResourceDetails
-                resource={resource}
+        <PageHeader title={resource.name || resource.title}></PageHeader>
+            { loaded && (<div style={{display: "flex", flexBasis: "auto", maxWidth: 900, justifyContent: "center", margin: "auto"}}>
+              <SwapiResourceImage
+                style={{ objectFit: "cover", flex: 1}}
+                id={id}
                 resourceType={resourceType}
+                resourceName={resource.name!}
               />
-            </Col>
-          )}
-        </Row>
+                <SwapiResourceDetails
+                  resource={resource}
+                  resourceType={resourceType}
+                />
+            </div>)}
       </Content>
     </Layout>
   );

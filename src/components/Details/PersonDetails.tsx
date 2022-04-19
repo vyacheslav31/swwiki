@@ -1,3 +1,4 @@
+import { Card } from "antd";
 import Person from "../../types/Person";
 
 interface PersonDetailsProps {
@@ -6,7 +7,7 @@ interface PersonDetailsProps {
 
 const PersonDetails: React.FC<PersonDetailsProps> = ({ person }) => {
   return (
-    <>
+    <Card style={{flex: 3}}>
       <p>Name: {person.name}</p>
       <p>Birth Year: {person.birth_year}</p>
       <p>Eye Color: {person.birth_year}</p>
@@ -16,7 +17,7 @@ const PersonDetails: React.FC<PersonDetailsProps> = ({ person }) => {
       <p>Weight: {person.mass}</p>
       <p>Skin Color: {person.skin_color}</p>
       <p>Homeworld: {person.homeworld}</p>
-    </>
+    </Card>
   );
 };
 
