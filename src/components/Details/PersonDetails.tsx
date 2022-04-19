@@ -8,15 +8,15 @@ interface PersonDetailsProps {
 const PersonDetails: React.FC<PersonDetailsProps> = ({ person }) => {
   return (
     <Card style={{flex: 3}}>
-      <p>Name: {person.name}</p>
-      <p>Birth Year: {person.birth_year}</p>
-      <p>Eye Color: {person.birth_year}</p>
-      <p>Gender: {person.gender}</p>
-      <p>Hair Color: {person.hair_color}</p>
-      <p>Height: {person.height}</p>
-      <p>Weight: {person.mass}</p>
-      <p>Skin Color: {person.skin_color}</p>
-      <p>Homeworld: {person.homeworld}</p>
+      <p><b>Name:</b> {person.name}</p>
+      <p><b>Birth Year</b>: {person.birth_year}</p>
+      <p><b>Eye Color</b>: {person.birth_year}</p>
+      <p><b>Gender</b>: {person.gender}</p>
+      <p><b>Hair Color</b>: {person.hair_color}</p>
+      <p><b>Height</b>: {person.height}</p>
+      <p><b>Weight</b>: {person.mass}</p>
+      <p><b>Skin Color</b>: {person.skin_color}</p>
+      <p><b>Homeworld</b>: {person.homeworld}</p>
     </Card>
   );
 };

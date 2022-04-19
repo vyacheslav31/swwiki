@@ -8,14 +8,14 @@ interface PlanetDetailsProps {
 const PlanetDetails: React.FC<PlanetDetailsProps> = ({ planet }) => {
   return (
     <Card style={{flex: 3}}>
-      <p>Name: {planet.name}</p>
-      <p>Population: {planet.population}</p>
-      <p>Orbital Period: {planet.orbital_period}</p>
-      <p>Diameter: {planet.diameter}</p>
-      <p>Gravity {planet.gravity}</p>
-      <p>Terrain: {planet.terrain}</p>
-      <p>Surface Water: {planet.surface_water}</p>
-      <p>Climate: {planet.climate}</p>
+      <p><b>Name:</b> {planet.name}</p>
+      <p><b>Population</b>: {planet.population}</p>
+      <p><b>Orbital Period</b>: {planet.orbital_period}</p>
+      <p><b>Diameter</b>: {planet.diameter}</p>
+      <p><b>Gravity</b>: {planet.gravity}</p>
+      <p><b>Terrain</b>: {planet.terrain}</p>
+      <p><b>Surface Water</b>: {planet.surface_water}</p>
+      <p><b>Climate</b>: {planet.climate}</p>
     </Card>
   );
 };

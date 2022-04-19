@@ -6,6 +6,7 @@ import SwapiRequestProvider from "./state/SwapiRequest/context-provider";
 import SwapiResourceDetailsPage from "./pages/SwapiResourceDetailsPage";
 import RouterProvider from "./state/Router/context-provider";
 import ValidateQueryParam from "./components/Validation/ValidateQueryParam";
+import ResourceTypes from "./types/ResourceTypes";
 
 const App = () => {
   return (
@@ -17,27 +18,27 @@ const App = () => {
               <Route index element={<Home />} />
               <Route
                 path="people"
-                element={<ValidateQueryParam resourceType={"people"} />}
+                element={<ValidateQueryParam resourceType={ResourceTypes.people} />}
               />
               <Route
                 path="people/:id"
-                element={<SwapiResourceDetailsPage resourceType={"people"} />}
+                element={<SwapiResourceDetailsPage resourceType={ResourceTypes.people} />}
               />
               <Route
                 path="films"
-                element={<ValidateQueryParam resourceType={"films"} />}
+                element={<ValidateQueryParam resourceType={ResourceTypes.films} />}
               />
               <Route
                 path="films/:id"
-                element={<SwapiResourceDetailsPage resourceType={"films"} />}
+                element={<SwapiResourceDetailsPage resourceType={ResourceTypes.films} />}
               />
               <Route
                 path="planets"
-                element={<ValidateQueryParam resourceType={"planets"} />}
+                element={<ValidateQueryParam resourceType={ResourceTypes.planets} />}
               />
               <Route
                 path="planets/:id"
-                element={<SwapiResourceDetailsPage resourceType={"planets"} />}
+                element={<SwapiResourceDetailsPage resourceType={ResourceTypes.planets} />}
               />
               {/* <Route path="*" element={<Home />} /> */}
             </Route>

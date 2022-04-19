@@ -8,12 +8,12 @@ interface FilmDetailsProps {
 const FilmDetails: React.FC<FilmDetailsProps> = ({ film }) => {
   return (
     <Card style={{flex: 3}}>
-      <p>Name: {film.title}</p>
-      <p>Release Date: {film.release_date}</p>
-      <p>Director: {film.director}</p>
-      <p>Producer: {film.producer}</p>
-      <p>Episode #: {film.episode_id}</p>
-      <p>Summary: </p>
+      <p><b>Name</b>: {film.title}</p>
+      <p><b>Release Date</b>: {film.release_date}</p>
+      <p><b>Director</b>: {film.director}</p>
+      <p><b>Producer</b>: {film.producer}</p>
+      <p><b>Episode #</b>: {film.episode_id}</p>
+      <p><b>Summary</b>: </p>
       {film.opening_crawl}
     </Card>
   );
