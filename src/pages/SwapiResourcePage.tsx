@@ -51,20 +51,19 @@ const SwapiResourcePage: React.FC<SwapiResourcePageProps> = ({
         about them.
       </Text>
       <Divider />
-      <Pagination
+      {loaded && <><Pagination
         onChange={pageOnChangeHandler}
         current={pageNumber}
         total={resources.count}
         showSizeChanger={false}
         style={{ padding: "20px" }}
       />
-      {loaded && (
         <CardList
           loading={loading}
           data={resources}
           resourceType={resourceType}
         />
-      )}
+      </>}
     </>
   );
 };
