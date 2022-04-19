@@ -9,6 +9,7 @@ import { useSearchParams } from "react-router-dom";
 import ucfirst from "../helpers/ucfirst";
 import validatePageNumber from "../helpers/validatePageNumber";
 import Text from "antd/lib/typography/Text";
+import { SwapiResponse } from "../state/SwapiRequest/actions";
 
 interface SwapiResourcePageProps {
   resourceType: string;
@@ -20,16 +21,20 @@ const SwapiResourcePage: React.FC<SwapiResourcePageProps> = ({
   const [searchParams, setSearchParams] = useSearchParams();
   const { state, dispatch } = useContext(SwapiRequestContext);
   const { loading, data } = state;
-  const resources = data.results;
-  const pageNumber = parseInt(searchParams.get('page')!);
+  const resources = (data as SwapiResponse).results;
+  const pageNumber = parseInt(searchParams.get("page")!);
   const location = useLocation();
   const [loaded, setLoaded] = useState(false);
   const pageOnChangeHandler = (newPageNumber: number) => {
-    setSearchParams({ "page": newPageNumber.toString() });
+    setSearchParams({ page: newPageNumber.toString() });
   };
 
   useEffect(() => {
-    if (!loading && pageNumber && validatePageNumber(resourceType, pageNumber)) {
+    if (
+      !loading &&
+      pageNumber &&
+      validatePageNumber(resourceType, pageNumber)
+    ) {
       const dispatchSwapiRequest = makeSwapiRequest(resourceType, pageNumber);
       dispatchSwapiRequest(dispatch);
     }
@@ -38,13 +43,18 @@ const SwapiResourcePage: React.FC<SwapiResourcePageProps> = ({
 
   return (
     <>
-      <Title level={4} style={{ paddingTop: "2rem", paddingLeft: "1rem" }}>&gt; {ucfirst(resourceType)}</Title>
-      <Text>Please click on the resource portraits below to view more information about them.</Text>
+      <Title level={4} style={{ paddingTop: "2rem", paddingLeft: "1rem" }}>
+        &gt; {ucfirst(resourceType)}
+      </Title>
+      <Text>
+        Please click on the resource portraits below to view more information
+        about them.
+      </Text>
       <Divider />
       <Pagination
         onChange={pageOnChangeHandler}
         current={pageNumber}
-        total={data.count}
+        total={resources.count}
         showSizeChanger={false}
         style={{ padding: "20px" }}
       />

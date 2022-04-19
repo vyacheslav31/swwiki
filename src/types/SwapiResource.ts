@@ -1,12 +1,7 @@
-export default interface SwapiResource  {
-    created: string;
-    edited: string;
-    name: string;
-    url: string;
-    films?: string[];
-    people?: string[];
-    vehicles?: string[];
-    starships?: string[];
-    species?: string[];
-    [propName: string]: any;
-};
+import Film from "./Film";
+import Planet from "./Planet";
+import Person from "./Person";
+
+type SwapiResource = Person | Film | Planet;
+
+export default SwapiResource;

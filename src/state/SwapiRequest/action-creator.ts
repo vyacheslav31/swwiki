@@ -10,7 +10,7 @@ export const makeSwapiRequest = (
 ) => {
   return async (dispatch: Dispatch<SwapiRequestAction>) => {
     dispatch({ type: SwapiRequestType.SWAPI_REQUEST_LOADING });
-    
+
     let requestUrl = `https://swapi.dev/api/${resource}`;
 
     requestUrl = schema

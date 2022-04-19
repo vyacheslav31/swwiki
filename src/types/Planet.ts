@@ -1,6 +1,6 @@
-import SwapiResource from "./SwapiResource";
-
-export default interface Planet extends SwapiResource {
+type Planet = {
+  name?: string;
+  title?: string;
   diameter: string;
   rotation_period: string;
   orbital_period: string;
@@ -10,4 +10,10 @@ export default interface Planet extends SwapiResource {
   terrain: string;
   surface_water: string;
   residents: string[];
-}
+  films: string[];
+  url: string;
+  created: string;
+  edited: string;
+};
+
+export default Planet;

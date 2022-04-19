@@ -3,7 +3,6 @@ import { Col, Card } from "antd";
 import { Link } from "react-router-dom";
 import SwapiResourceImage from "../SwapiResourceImage";
 
-
 export interface SwapiResourceCardProps {
   id: number;
   name: string;
@@ -13,7 +12,7 @@ export interface SwapiResourceCardProps {
 const SwapiResourceCard: React.FC<SwapiResourceCardProps> = ({
   id,
   name,
-  resourceType
+  resourceType,
 }) => {
   const { Meta } = Card;
   return (
@@ -25,7 +24,11 @@ const SwapiResourceCard: React.FC<SwapiResourceCardProps> = ({
             hoverable
             style={{ alignContent: "center", marginTop: "12px" }}
             cover={
-              <SwapiResourceImage id={id} resourceName={name} resourceType={resourceType} />
+              <SwapiResourceImage
+                id={id}
+                resourceName={name}
+                resourceType={resourceType}
+              />
             }
             key={name}
           >

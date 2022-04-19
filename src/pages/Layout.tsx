@@ -1,10 +1,14 @@
 import { Outlet, Link } from "react-router-dom";
-import { Layout as Body, Menu} from "antd";
+import { Layout as Body, Menu } from "antd";
 import { Header, Footer, Content } from "antd/lib/layout/layout";
-import { UserOutlined, HomeOutlined, CameraOutlined, CloudFilled } from '@ant-design/icons';
+import {
+  UserOutlined,
+  HomeOutlined,
+  CameraOutlined,
+  CloudFilled,
+} from "@ant-design/icons";
 
 const Layout = () => {
-
   return (
     <Body style={{ minHeight: "100vh", overflow: "auto" }}>
       <Header className="header">
@@ -23,10 +27,13 @@ const Layout = () => {
           </Menu.Item>
         </Menu>
       </Header>
-      <Content className="site-layout-background" style={{ padding: '0 60px' }}>
+      <Content className="site-layout-background" style={{ padding: "0 60px" }}>
         <Outlet />
       </Content>
-      <Footer style={{ textAlign: 'center' }}>Copyright &copy; {new Date().getFullYear()} Vyacheslav Gorbov. All rights reserved.</Footer>
+      <Footer style={{ textAlign: "center" }}>
+        Copyright &copy; {new Date().getFullYear()} Vyacheslav Gorbov. All
+        rights reserved.
+      </Footer>
     </Body>
   );
 };

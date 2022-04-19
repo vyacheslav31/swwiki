@@ -3,11 +3,13 @@ import { useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import SwapiRequestContext from "../state/SwapiRequest/context";
 import { makeSwapiRequest } from "../state/SwapiRequest/action-creator";
-import SwapiResource from '../types/SwapiResource'
-import { Descriptions, Layout, PageHeader} from "antd";
+import SwapiResource from "../types/SwapiResource";
+import { Layout, PageHeader } from "antd";
 import { Content } from "antd/lib/layout/layout";
 import SwapiResourceImage from "../components/SwapiResourceImage";
-import {Row, Col} from 'antd';
+import { Row, Col } from "antd";
+import SwapiResourceDetails from "../components/SwapiResourceDetails";
+
 interface SwapiResourceDetailsPageProps {
   resourceType: string;
 }
@@ -16,42 +18,49 @@ const SwapiResourceDetailsPage: React.FC<SwapiResourceDetailsPageProps> = ({
   resourceType,
 }) => {
   const params = useParams();
-  const { state: requestState, dispatch: requestDispatch } = useContext(
-    SwapiRequestContext
-  );
-  const { data, loading } = requestState
+  const { state: requestState, dispatch: requestDispatch } =
+    useContext(SwapiRequestContext);
+  const { data, loading } = requestState;
+  const resource = data as SwapiResource;
   const [loaded, setLoaded] = useState(false);
-  const details: JSX.Element[] = []
-  const resourceName = (data as SwapiResource).name || (data as SwapiResource).title;
   const id = parseInt(params.id!);
 
   useEffect(() => {
     if (!loading) {
-      const dispatchSwapiRequest = makeSwapiRequest(resourceType, undefined, params.id);
+      const dispatchSwapiRequest = makeSwapiRequest(
+        resourceType,
+        undefined,
+        params.id
+      );
       dispatchSwapiRequest(requestDispatch);
     }
     setLoaded(true);
   }, []);
 
-  for (const [key, value] of Object.entries(data as SwapiResource)) {
-    details.push(<Descriptions.Item key={key} label={key}>{value}</Descriptions.Item>)
-  }
-
   return (
-    <Layout className="site-layout-background" style={{ padding: '24px 0', background: '#fff', marginTop: '3rem' }}>
-      <Content style={{ padding: '0 24px'}}>
-        <PageHeader title={resourceName}></PageHeader>
+    <Layout
+      className="site-layout-background"
+      style={{ padding: "24px 0", background: "#fff", marginTop: "3rem" }}
+    >
+      <Content style={{ padding: "0 24px" }}>
+        <PageHeader title={resource.name}></PageHeader>
         <Row wrap={false}>
-        <Col style={{overflow: "hidden"}} flex={2}>
-          <SwapiResourceImage style={{maxWidth: "100%", maxHeight: "100%", display: "block"}} id={id} resourceType={resourceType} resourceName={resourceName}/>
-        </Col>
-          {loaded && 
-          <Col flex={3}>
-            <Descriptions bordered>
-              {details}
-            </Descriptions>
+          <Col style={{ overflow: "hidden" }} flex={2}>
+            <SwapiResourceImage
+              style={{ maxWidth: "100%", maxHeight: "100%", display: "block" }}
+              id={id}
+              resourceType={resourceType}
+              resourceName={resource.name!}
+            />
           </Col>
-          }
+          {loaded && (
+            <Col flex={3}>
+              <SwapiResourceDetails
+                resource={resource}
+                resourceType={resourceType}
+              />
+            </Col>
+          )}
         </Row>
       </Content>
     </Layout>

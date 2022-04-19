@@ -12,7 +12,6 @@ interface CardListProps {
 const CardList: React.FC<CardListProps> = (
   props: React.PropsWithChildren<CardListProps>
 ) => {
-  
   const resourceCards = props.data.map((resource: SwapiResource) => {
     resource.name = resource.name || resource.title;
     const id = parseInt(resource.url.match(/\d+/)!.join(""));
@@ -20,14 +19,16 @@ const CardList: React.FC<CardListProps> = (
       <SwapiResourceCard
         key={resource.name}
         id={id}
-        name={resource.name}
+        name={resource.name!}
         resourceType={props.resourceType}
       />
     );
   });
   return (
-    <div className="site-card-wrapper" style={{padding: '1rem'}}>
-      <Row gutter={20} justify="center">{resourceCards}</Row>
+    <div className="site-card-wrapper" style={{ padding: "1rem" }}>
+      <Row gutter={20} justify="center">
+        {resourceCards}
+      </Row>
     </div>
   );
 };
