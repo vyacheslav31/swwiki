@@ -22,7 +22,7 @@ const SwapiResourcePage: React.FC<SwapiResourcePageProps> = ({
   const { state, dispatch } = useContext(SwapiRequestContext);
   const { loading, data } = state;
   const resources = (data as SwapiResponse).results;
-  const pageNumber = parseInt(searchParams.get("page")!);
+  const currentPage = parseInt(searchParams.get("page")!);
   const location = useLocation();
   const [loaded, setLoaded] = useState(false);
   const pageOnChangeHandler = (newPageNumber: number) => {
@@ -32,15 +32,16 @@ const SwapiResourcePage: React.FC<SwapiResourcePageProps> = ({
   useEffect(() => {
     if (
       !loading &&
-      pageNumber &&
-      validatePageNumber(resourceType, pageNumber)
+      currentPage &&
+      validatePageNumber(resourceType, currentPage)
     ) {
-      const dispatchSwapiRequest = makeSwapiRequest(resourceType, pageNumber);
+      const dispatchSwapiRequest = makeSwapiRequest(resourceType, currentPage);
       dispatchSwapiRequest(dispatch);
     }
     setLoaded(true);
   }, [location, searchParams]);
-
+  console.log(resources.length);
+  
   return (
     <>
       <Title level={4} style={{ paddingTop: "2rem", paddingLeft: "1rem" }}>
@@ -53,8 +54,8 @@ const SwapiResourcePage: React.FC<SwapiResourcePageProps> = ({
       <Divider />
       {loaded && <><Pagination
         onChange={pageOnChangeHandler}
-        current={pageNumber}
-        total={resources.count}
+        current={currentPage}
+        total={(data as SwapiResponse).count}
         showSizeChanger={false}
         style={{ padding: "20px" }}
       />
