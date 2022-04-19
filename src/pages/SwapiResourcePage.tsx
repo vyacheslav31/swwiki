@@ -40,8 +40,7 @@ const SwapiResourcePage: React.FC<SwapiResourcePageProps> = ({
     }
     setLoaded(true);
   }, [location, searchParams]);
-  console.log(resources.length);
-  
+    
   return (
     <>
       <Title level={4} style={{ paddingTop: "2rem", paddingLeft: "1rem" }}>

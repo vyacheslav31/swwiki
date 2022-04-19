@@ -1,4 +1,4 @@
-import Film from "../types/Film";
+import Film from "../../types/Film";
 
 interface FilmDetailsProps {
   film: Film;

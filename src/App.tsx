@@ -5,7 +5,7 @@ import Layout from "./pages/Layout";
 import SwapiRequestProvider from "./state/SwapiRequest/context-provider";
 import SwapiResourceDetailsPage from "./pages/SwapiResourceDetailsPage";
 import RouterProvider from "./state/Router/context-provider";
-import ValidateQueryParam from "./components/ValidateQueryParam";
+import ValidateQueryParam from "./components/Validation/ValidateQueryParam";
 
 const App = () => {
   return (

@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Card } from "antd";
 import { Link } from "react-router-dom";
-import SwapiResourceImage from "../SwapiResourceImage";
+import SwapiResourceImage from "../Image/SwapiResourceImage";
 
 export interface SwapiResourceCardProps {
   id: number;

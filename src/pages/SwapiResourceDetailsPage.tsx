@@ -6,9 +6,9 @@ import { makeSwapiRequest } from "../state/SwapiRequest/action-creator";
 import SwapiResource from "../types/SwapiResource";
 import { Layout, PageHeader } from "antd";
 import { Content } from "antd/lib/layout/layout";
-import SwapiResourceImage from "../components/SwapiResourceImage";
+import SwapiResourceImage from "../components/Image/SwapiResourceImage";
 import { Row, Col } from "antd";
-import SwapiResourceDetails from "../components/SwapiResourceDetails";
+import SwapiResourceDetails from "../components/Details/ResourceDetailsDisplay";
 
 interface SwapiResourceDetailsPageProps {
   resourceType: string;

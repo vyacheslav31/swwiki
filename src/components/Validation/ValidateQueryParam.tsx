@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import validatePageNumber from "../helpers/validatePageNumber";
-import SwapiResourcePage from "../pages/SwapiResourcePage";
+import validatePageNumber from "../../helpers/validatePageNumber";
+import SwapiResourcePage from "../../pages/SwapiResourcePage";
 
 interface ValidateQueryParamProps {
   resourceType: string;
