@@ -3,6 +3,14 @@ import { useSearchParams } from "react-router-dom";
 import validatePageNumber from "../../helpers/validatePageNumber";
 import SwapiResourcePage from "../../pages/SwapiResourcePage";
 
+/**
+ * ValidateQueryParam component
+ *
+ * @version 1.0.0
+ * @author [Vyacheslav Gorbov](https://github.com/vyacheslav31)
+ * @param {resourceType: string} The type of SWApi resource.
+ */
+
 export interface ValidateQueryParamProps {
   resourceType: string;
 }

@@ -3,6 +3,15 @@ import { Row } from "antd";
 import SwapiResourceCard from "./SwapiResourceCard";
 import SwapiResource from "../../types/SwapiResource";
 
+/**
+ * CardList component
+ *
+ * @version 1.0.0
+ * @author [Vyacheslav Gorbov](https://github.com/vyacheslav31)
+ * @param {data: SwapiResource[]} The array of resources to display in the card list.
+ * @param {resourceType: string} The type of SWApi resource.
+ */
+
 interface CardListProps {
   data: SwapiResource[];
   resourceType: string;

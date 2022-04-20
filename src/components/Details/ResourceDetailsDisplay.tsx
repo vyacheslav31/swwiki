@@ -6,6 +6,15 @@ import FilmDetails from "./FilmDetails";
 import PersonDetails from "./PersonDetails";
 import PlanetDetails from "./PlanetDetails";
 
+/**
+ * ResourceDetailsDisplay component
+ *
+ * @version 1.0.0
+ * @author [Vyacheslav Gorbov](https://github.com/vyacheslav31)
+ * @param {resource: SwapiResource} The resource whose details need to be displayed.
+ * @param {resourceType: string} The type of SWApi resource.
+ */
+
 interface SwapiResourceDetailsProps {
   resource: Person | Film | Planet;
   resourceType: string;

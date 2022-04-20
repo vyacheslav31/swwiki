@@ -8,6 +8,12 @@ import {
   CloudFilled,
 } from "@ant-design/icons";
 
+/**
+ * This component renders the nav bar, a title, footer and the page content.
+ * @version 1.0.0
+ * @author [Vyacheslav Gorbov](https://github.com/vyacheslav31)
+ * @returns The <Layout> component.
+ */
 const Layout = () => {
   return (
     <Body style={{ minHeight: "100vh", overflow: "auto" }}>

@@ -3,6 +3,16 @@ import { Dispatch } from "react";
 import { SwapiRequestAction } from "./actions";
 import { SwapiRequestType } from "./actions";
 
+/**
+ * This is the main app component where all the routes are declared.
+ *
+ * @version 1.0.0
+ * @author [Vyacheslav Gorbov](https://github.com/vyacheslav31)
+ * @param {resource: string} The resource to query (i.e: People, Films, Planets, etc...)
+ * @param {page?: string} The page number of query (1, 2, 3, etc...)
+ * @param {schema?: string} The schema to query (e.g: https://swapi.dev/api/people/{schema})
+ * @returns A function to make swapi requests by providing a Dispatch.
+ */
 export const makeSwapiRequest = (
   resource: string,
   page: number | undefined = undefined,

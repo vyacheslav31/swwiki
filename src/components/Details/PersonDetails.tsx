@@ -1,6 +1,14 @@
 import { Card } from "antd";
 import Person from "../../types/Person";
 
+/**
+ * PersonDetails component
+ *
+ * @version 1.0.0
+ * @author [Vyacheslav Gorbov](https://github.com/vyacheslav31)
+ * @param {person: Person} The character details
+ */
+
 interface PersonDetailsProps {
   person: Person;
 }

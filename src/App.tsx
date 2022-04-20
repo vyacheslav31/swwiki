@@ -7,6 +7,14 @@ import SwapiResourceDetailsPage from "./pages/SwapiResourceDetailsPage";
 import ValidateQueryParam from "./components/Validation/ValidateQueryParam";
 import ResourceTypes from "./types/ResourceTypes";
 
+/**
+ * This is the main app component where all the routes are declared.
+ * 
+ * @version 1.0.0
+ * @author [Vyacheslav Gorbov](https://github.com/vyacheslav31)
+ * @returns The </App> component.
+ */
+
 const App = () => {
   return (
     <SwapiRequestProvider>
@@ -23,9 +31,7 @@ const App = () => {
             <Route
               path="people/:id"
               element={
-                <SwapiResourceDetailsPage
-                  resourceType={ResourceTypes.people}
-                />
+                <SwapiResourceDetailsPage resourceType={ResourceTypes.people} />
               }
             />
             <Route
@@ -37,9 +43,7 @@ const App = () => {
             <Route
               path="films/:id"
               element={
-                <SwapiResourceDetailsPage
-                  resourceType={ResourceTypes.films}
-                />
+                <SwapiResourceDetailsPage resourceType={ResourceTypes.films} />
               }
             />
             <Route

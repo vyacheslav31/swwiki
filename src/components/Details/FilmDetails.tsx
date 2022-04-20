@@ -1,6 +1,14 @@
 import { Card } from "antd";
 import Film from "../../types/Film";
 
+/**
+ * FilmDetails component
+ *
+ * @version 1.0.0
+ * @author [Vyacheslav Gorbov](https://github.com/vyacheslav31)
+ * @param {film: Film} The film details
+ */
+
 interface FilmDetailsProps {
   film: Film;
 }

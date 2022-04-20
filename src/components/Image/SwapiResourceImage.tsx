@@ -1,6 +1,17 @@
 import React from "react";
 import { SyntheticEvent } from "react";
 
+/**
+ * SwapiResourceImage component
+ *
+ * @version 1.0.0
+ * @author [Vyacheslav Gorbov](https://github.com/vyacheslav31)
+ * @param { id: number } The resource whose details need to be displayed.
+ * @param { resourceName: string } The name or title of the resource.
+ * @param { resourceType: string } The type of SWApi resource.
+ * @param { style:  React.CSSProperties } The style to apply to the component.
+ */
+
 interface SwapiResourceImageProps {
   id: number;
   resourceName: string;

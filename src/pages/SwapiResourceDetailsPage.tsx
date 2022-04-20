@@ -9,6 +9,16 @@ import { Content } from "antd/lib/layout/layout";
 import SwapiResourceImage from "../components/Image/SwapiResourceImage";
 import SwapiResourceDetails from "../components/Details/ResourceDetailsDisplay";
 
+/**
+ * This is this page where the user can see the details for a given resource, along
+ * with a picture.
+ *
+ * @version 1.0.0
+ * @author [Vyacheslav Gorbov](https://github.com/vyacheslav31)
+ * @param {resourceType: string} The Swapi resource type
+ * @returns SwapiResourcePage
+ */
+
 export interface SwapiResourceDetailsPageProps {
   resourceType: string;
 }
@@ -42,7 +52,10 @@ const SwapiResourceDetailsPage: React.FC<SwapiResourceDetailsPageProps> = ({
       style={{ padding: "24px 0", background: "#fff", marginTop: "3rem" }}
     >
       <Content style={{ padding: "0 24px" }}>
-        <PageHeader data-testid={resourceType + "-details-header"} title={resource.name || resource.title}></PageHeader>
+        <PageHeader
+          data-testid={resourceType + "-details-header"}
+          title={resource.name || resource.title}
+        />
         {loaded && (
           <div
             style={{

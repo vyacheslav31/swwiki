@@ -12,6 +12,7 @@ window.matchMedia = (query) => ({
   dispatchEvent: jest.fn(),
 });
 
+// Suppress console.error warnings related to <antd> components
 global.console = {
   ...console,
   warn: jest.fn(),

@@ -11,6 +11,16 @@ import validatePageNumber from "../helpers/validatePageNumber";
 import Text from "antd/lib/typography/Text";
 import { SwapiResponse } from "../state/SwapiRequest/actions";
 
+/**
+ * This is this page where the user can see a list of cards and select a particular Swapi
+ * Resource to read. User is also able to navigate to other pages via the Pagination component.
+ *
+ * @version 1.0.0
+ * @author [Vyacheslav Gorbov](https://github.com/vyacheslav31)
+ * @param {resourceType: string} The Swapi resource type
+ * @returns SwapiResourcePage
+ */
+
 export interface SwapiResourcePageProps {
   resourceType: string;
 }
