@@ -12,7 +12,7 @@ import { SyntheticEvent } from "react";
  * @param { style:  React.CSSProperties } The style to apply to the component.
  */
 
-interface SwapiResourceImageProps {
+export interface SwapiResourceImageProps {
   id: number;
   resourceName: string;
   resourceType: string;
