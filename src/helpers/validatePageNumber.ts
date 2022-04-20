@@ -1,4 +1,9 @@
-// The total recorded page numbers for every resource type.
+/**
+ * An object that contains the current total page numbers of every available resource.
+ * @version 1.0.0
+ * @author [Vyacheslav Gorbov](https://github.com/vyacheslav31)
+ * @param resourceType The Swapi resource type
+ */
 export const totalPageNumbers: { [resourceType: string]: number } = {
   people: 9,
   films: 1,

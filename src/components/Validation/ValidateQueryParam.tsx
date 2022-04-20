@@ -5,7 +5,7 @@ import SwapiResourcePage from "../../pages/SwapiResourcePage";
 
 /**
  * ValidateQueryParam component
- *
+ * Used to validate if the queryParam route specified in the URL is valid.
  * @version 1.0.0
  * @author [Vyacheslav Gorbov](https://github.com/vyacheslav31)
  * @param {resourceType: string} The type of SWApi resource.

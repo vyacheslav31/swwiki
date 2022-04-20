@@ -9,7 +9,6 @@ type RouterProviderProps = {
 const RouterProvider = ({ children }: RouterProviderProps) => {
   const location = useLocation();
   const [route, setRoute] = useState({
-    //--> it can be replaced with useRef or localStorage
     to: location.pathname,
     from: location.pathname,
   });

@@ -20,7 +20,8 @@ const FilmDetails: React.FC<FilmDetailsProps> = ({ film }) => {
         <b>Name</b>:<p data-testid="film-name">{film.title}</p>
       </p>
       <p>
-        <b>Release Date</b>:<p data-testid="film-release">{film.release_date}</p>
+        <b>Release Date</b>:
+        <p data-testid="film-release">{film.release_date}</p>
       </p>
       <p>
         <b>Director</b>:<p data-testid="film-director">{film.director}</p>
@@ -40,10 +41,3 @@ const FilmDetails: React.FC<FilmDetailsProps> = ({ film }) => {
 };
 
 export default FilmDetails;
-
-
-
-
-
-
-

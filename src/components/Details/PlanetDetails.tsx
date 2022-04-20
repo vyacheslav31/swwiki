@@ -20,13 +20,16 @@ const PlanetDetails: React.FC<PlanetDetailsProps> = ({ planet }) => {
         <b>Name:</b> <p data-testid="planet-name">{planet.name}</p>
       </p>
       <p>
-        <b>Population</b>: <p data-testid="planet-population">{planet.population}</p>
+        <b>Population</b>:{" "}
+        <p data-testid="planet-population">{planet.population}</p>
       </p>
       <p>
-        <b>Orbital Period</b>: <p data-testid="planet-orbital">{planet.orbital_period}</p>
+        <b>Orbital Period</b>:{" "}
+        <p data-testid="planet-orbital">{planet.orbital_period}</p>
       </p>
       <p>
-        <b>Rotation Period</b>: <p data-testid="planet-rotation">{planet.rotation_period}</p>
+        <b>Rotation Period</b>:{" "}
+        <p data-testid="planet-rotation">{planet.rotation_period}</p>
       </p>
       <p>
         <b>Diameter</b>: <p data-testid="planet-diameter">{planet.diameter}</p>
@@ -38,7 +41,8 @@ const PlanetDetails: React.FC<PlanetDetailsProps> = ({ planet }) => {
         <b>Terrain</b>: <p data-testid="planet-terrain">{planet.terrain}</p>
       </p>
       <p>
-        <b>Surface Water</b>: <p data-testid="planet-surface_water">{planet.surface_water}</p>
+        <b>Surface Water</b>:{" "}
+        <p data-testid="planet-surface_water">{planet.surface_water}</p>
       </p>
       <p>
         <b>Climate</b>: <p data-testid="planet-climate">{planet.climate}</p>
