@@ -13,23 +13,23 @@ const MockSwapiResourceDetailsPage: React.FC<SwapiResourceDetailsPageProps> = ({
 }
 
 describe("test the SwapiResourcePage component", () => {
-    test("should render person details page header", () => {
-        render(<MockSwapiResourceDetailsPage resourceType={ResourceTypes.people} />);
-        const headerEl = screen.getByTestId(ResourceTypes.people + "-details-header");
-        expect(headerEl).toBeInTheDocument();
-    });
+    // test("should render person details page header", () => {
+    //     render(<MockSwapiResourceDetailsPage resourceType={ResourceTypes.people} />);
+    //     const headerEl = screen.getByTestId(ResourceTypes.people + "-details-header");
+    //     expect(headerEl).toBeInTheDocument();
+    // });
 
-    test("should render films details page header", () => {
-        render(<MockSwapiResourceDetailsPage resourceType={ResourceTypes.people} />);
-        const headerEl = screen.getByTestId(ResourceTypes.films + "-details-header");
-        expect(headerEl).toBeInTheDocument();
-    });
+    // test("should render films details page header", () => {
+    //     render(<MockSwapiResourceDetailsPage resourceType={ResourceTypes.people} />);
+    //     const headerEl = screen.getByTestId(ResourceTypes.films + "-details-header");
+    //     expect(headerEl).toBeInTheDocument();
+    // });
 
-    test("should render planets details page header", () => {
-        render(<MockSwapiResourceDetailsPage resourceType={ResourceTypes.people} />);
-        const headerEl = screen.getByTestId(ResourceTypes.planets + "-details-header");
-        expect(headerEl).toBeInTheDocument();
-    });
+    // test("should render planets details page header", () => {
+    //     render(<MockSwapiResourceDetailsPage resourceType={ResourceTypes.people} />);
+    //     const headerEl = screen.getByTestId(ResourceTypes.planets + "-details-header");
+    //     expect(headerEl).toBeInTheDocument();
+    // });
 
     /**
      * PEOPLE DETAILS TEST

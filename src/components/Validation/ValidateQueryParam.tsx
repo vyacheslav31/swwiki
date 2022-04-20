@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import validatePageNumber from "../../helpers/validatePageNumber";
 import SwapiResourcePage from "../../pages/SwapiResourcePage";
 
-interface ValidateQueryParamProps {
+export interface ValidateQueryParamProps {
   resourceType: string;
 }
 
