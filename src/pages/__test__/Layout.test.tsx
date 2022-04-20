@@ -2,6 +2,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import Layout from "../Layout";
 import "@testing-library/jest-dom";
 import { BrowserRouter } from "react-router-dom";
+import { act } from "react-dom/test-utils";
 
 const MockLayout = () => {
   return (
@@ -12,44 +13,39 @@ const MockLayout = () => {
 };
 
 describe("test the Layout component", () => {
-  test("should render the headers", async () => {
+  test("should render the all the layout skeleton elements", async () => {
     render(<MockLayout />);
+    // should render the header
     const headerEl = screen.getByTestId("body-header");
-    expect(headerEl).toBeInTheDocument();
-  });
+    await waitFor(() => {
+      expect(headerEl).toBeInTheDocument();
+    });
 
-  test("should render the menu", async () => {
-    render(<MockLayout />);
+    // should render the menu
     const menuEl = screen.getByTestId("body-menu");
     expect(menuEl).toBeInTheDocument();
-  });
 
-  test("should render the home menu item", async () => {
+    // should render the home menu item
     const homeLinkEl = screen.getByTestId("home-menuitem");
     expect(homeLinkEl).toBeInTheDocument();
-  });
 
-  test("should render the people menu item", async () => {
+    // should render the people menu item
     const peopleLinkEl = screen.getByTestId("people-menuitem");
     expect(peopleLinkEl).toBeInTheDocument();
-  });
 
-  test("should render the films menu item", async () => {
+    // should render the films menu item
     const filmsLinkEl = screen.getByTestId("films-menuitem");
     expect(filmsLinkEl).toBeInTheDocument();
-  });
 
-  test("should render the planets menu item", async () => {
+    // should render the planets menu item
     const planetsLinkEl = screen.getByTestId("planets-menuitem");
     expect(planetsLinkEl).toBeInTheDocument();
-  });
 
-  test("should render the content", async () => {
+    // should render the content
     const contentEl = screen.getByTestId("body-content");
     expect(contentEl).toBeInTheDocument();
-  });
 
-  test("should render the footer", async () => {
+    // should render the footer
     const footerEl = screen.getByTestId("body-footer");
     expect(footerEl).toBeInTheDocument();
   });

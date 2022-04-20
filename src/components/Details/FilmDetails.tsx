@@ -17,26 +17,33 @@ const FilmDetails: React.FC<FilmDetailsProps> = ({ film }) => {
   return (
     <Card style={{ flex: 3 }}>
       <p>
-        <b>Name</b>: {film.title}
+        <b>Name</b>:<p data-testid="film-name">{film.title}</p>
       </p>
       <p>
-        <b>Release Date</b>: {film.release_date}
+        <b>Release Date</b>:<p data-testid="film-release">{film.release_date}</p>
       </p>
       <p>
-        <b>Director</b>: {film.director}
+        <b>Director</b>:<p data-testid="film-director">{film.director}</p>
       </p>
       <p>
-        <b>Producer</b>: {film.producer}
+        <b>Producer</b>:<p data-testid="film-producer">{film.producer}</p>
       </p>
       <p>
-        <b>Episode #</b>: {film.episode_id}
+        <b>Episode #</b>:<p data-testid="film-episode">{film.episode_id}</p>
       </p>
       <p>
         <b>Summary</b>:{" "}
       </p>
-      {film.opening_crawl}
+      <p data-testid="film-summary">{film.opening_crawl}</p>
     </Card>
   );
 };
 
 export default FilmDetails;
+
+
+
+
+
+
+

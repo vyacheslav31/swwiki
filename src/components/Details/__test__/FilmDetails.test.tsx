@@ -20,35 +20,36 @@ const MockFilm: Film = {
     url: "N/A",
 }
 
+
 describe("test the FilmDetails component", () => {
     test("should render the provided the film title", () => {
         render(<FilmDetails film={MockFilm} />)
-        const titleEl = screen.getByText("How to Train a Dragon");
-        expect(titleEl).toBeInTheDocument();
+        const titleEl = screen.getByTestId("film-name");
+        expect(titleEl).toHaveTextContent("How to Train a Dragon");
     });
     test("should render the provided the film episode id", () => {
         render(<FilmDetails film={MockFilm} />)
-        const episode = screen.getByText(3789);
-        expect(episode).toBeInTheDocument();
+        const episode = screen.getByTestId("film-episode");
+        expect(episode).toHaveTextContent("3789");
     });
     test("should render the provided the film summary", () => {
         render(<FilmDetails film={MockFilm} />)
-        const summary = screen.getByText("A movie about dragons.");
-        expect(summary).toBeInTheDocument();
+        const summary = screen.getByTestId("film-summary");
+        expect(summary).toHaveTextContent("A movie about dragons.");
     });
     test("should render the provided the film director", () => {
         render(<FilmDetails film={MockFilm} />)
-        const director = screen.getByText("Chris Sanders");
-        expect(director).toBeInTheDocument();
+        const director = screen.getByTestId("film-director");
+        expect(director).toHaveTextContent("Chris Sanders");
     });
     test("should render the provided the film producer", () => {
         render(<FilmDetails film={MockFilm} />)
-        const producer = screen.getByText("Dean DeBlois");
-        expect(producer).toBeInTheDocument();
+        const producer = screen.getByTestId("film-producer");
+        expect(producer).toHaveTextContent("Dean DeBlois");
     });
     test("should render the provided the film release date", () => {
         render(<FilmDetails film={MockFilm} />)
-        const date = screen.getByText("03/26/10");
-        expect(date).toBeInTheDocument();
+        const date = screen.getByTestId("film-release");
+        expect(date).toHaveTextContent("03/26/10");
     });
 });

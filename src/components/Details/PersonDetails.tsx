@@ -17,31 +17,31 @@ const PersonDetails: React.FC<PersonDetailsProps> = ({ person }) => {
   return (
     <Card style={{ flex: 3 }}>
       <p>
-        <b>Name:</b> {person.name}
+        <b>Name:</b> <p data-testid="person-name">{person.name}</p>
       </p>
       <p>
-        <b>Birth Year</b>: {person.birth_year}
+        <b>Birth Year</b>: <p data-testid="person-birth_year">{person.birth_year}</p>
       </p>
       <p>
-        <b>Eye Color</b>: {person.birth_year}
+        <b>Eye Color</b>: <p data-testid="person-eye_color">{person.eye_color}</p>
       </p>
       <p>
-        <b>Gender</b>: {person.gender}
+        <b>Gender</b>: <p data-testid="person-gender">{person.gender}</p>
       </p>
       <p>
-        <b>Hair Color</b>: {person.hair_color}
+        <b>Hair Color</b>: <p data-testid="person-hair_color">{person.hair_color}</p>
       </p>
       <p>
-        <b>Height</b>: {person.height}
+        <b>Height</b>: <p data-testid="person-height">{person.height}</p>
       </p>
       <p>
-        <b>Weight</b>: {person.mass}
+        <b>Weight</b>: <p data-testid="person-mass">{person.mass}</p>
       </p>
       <p>
-        <b>Skin Color</b>: {person.skin_color}
+        <b>Skin Color</b>: <p data-testid="person-skin_color">{person.skin_color}</p>
       </p>
       <p>
-        <b>Homeworld</b>: {person.homeworld}
+        <b>Homeworld</b>: <p data-testid="person-homeworld">{person.homeworld}</p>
       </p>
     </Card>
   );

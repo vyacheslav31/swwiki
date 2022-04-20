@@ -1,54 +1,74 @@
 import { render, screen } from "@testing-library/react";
-import FilmDetails from "../FilmDetails";
+import PersonDetails from "../PersonDetails";
 import "@testing-library/jest-dom";
-import Film from "../../../types/Film";
+import Person from "../../../types/Person";
 
-const MockFilm: Film = {
-    name: "N/A",
-    title: "How to Train a Dragon",
-    episode_id: 3789,
-    opening_crawl: "A movie about dragons.",
-    director: "Chris Sanders",
-    producer: "Dean DeBlois",
-    release_date: "03/26/10",
+const MockPerson: Person = {
+    name: "Vyacheslav Gorbov",
+    title: "string",
+    birth_year: "1993",
+    eye_color: "green",
+    gender: "Male",
+    hair_color: "Brown",
+    height: "170cm",
+    mass: "80kg",
+    skin_color: "fair",
+    homeworld: "Earth",
+    films: [],
+    species: [],
     starships: [],
     vehicles: [],
-    characters: [],
-    planets: [],
-    created: "N/A",
-    edited: "N/A",
-    url: "N/A",
+    url: "",
+    created: "",
+    edited: "",
 }
 
-describe("test the FilmDetails component", () => {
-    test("should render the provided the film title", () => {
-        render(<FilmDetails film={MockFilm} />)
-        const titleEl = screen.getByText("How to Train a Dragon");
-        expect(titleEl).toBeInTheDocument();
+describe("test the PersonDetails component", () => {
+    test("should render the provided the Person name", () => {
+        render(<PersonDetails person={MockPerson} />)
+        const name = screen.getByTestId("person-name");
+        expect(name).toBeInTheDocument();
     });
-    test("should render the provided the film episode id", () => {
-        render(<FilmDetails film={MockFilm} />)
-        const episode = screen.getByText(3789);
-        expect(episode).toBeInTheDocument();
+    test("should render the provided the Person birth year", () => {
+        render(<PersonDetails person={MockPerson} />)
+        const year = screen.getByTestId("person-birth_year");
+        expect(year).toBeInTheDocument();
     });
-    test("should render the provided the film summary", () => {
-        render(<FilmDetails film={MockFilm} />)
-        const summary = screen.getByText("A movie about dragons.");
-        expect(summary).toBeInTheDocument();
+    test("should render the provided the Person eye color", () => {
+        render(<PersonDetails person={MockPerson} />)
+        const eye = screen.getByTestId("person-eye_color");
+        expect(eye).toBeInTheDocument();
     });
-    test("should render the provided the film director", () => {
-        render(<FilmDetails film={MockFilm} />)
-        const director = screen.getByText("Chris Sanders");
-        expect(director).toBeInTheDocument();
+    test("should render the provided the Person gender", () => {
+        render(<PersonDetails person={MockPerson} />)
+        const gender = screen.getByTestId("person-gender");
+        expect(gender).toBeInTheDocument();
     });
-    test("should render the provided the film producer", () => {
-        render(<FilmDetails film={MockFilm} />)
-        const producer = screen.getByText("Dean DeBlois");
-        expect(producer).toBeInTheDocument();
+    test("should render the provided the Person hair color", () => {
+        render(<PersonDetails person={MockPerson} />)
+        const hair = screen.getByTestId("person-hair_color");
+        expect(hair).toBeInTheDocument();
     });
-    test("should render the provided the film release date", () => {
-        render(<FilmDetails film={MockFilm} />)
-        const date = screen.getByText("03/26/10");
-        expect(date).toBeInTheDocument();
+    test("should render the provided the Person person height", () => {
+        render(<PersonDetails person={MockPerson} />)
+        const height = screen.getByTestId("person-height");
+        expect(height).toBeInTheDocument();
+    });
+    test("should render the provided the Person mass", () => {
+        render(<PersonDetails person={MockPerson} />)
+        const mass = screen.getByTestId("person-mass");
+        expect(mass).toBeInTheDocument();
+    });
+
+    test("should render the provided the Person skin color", () => {
+        render(<PersonDetails person={MockPerson} />)
+        const skin = screen.getByTestId("person-skin_color");
+        expect(skin).toBeInTheDocument();
+    });
+
+    test("should render the provided the Person homeworld", () => {
+        render(<PersonDetails person={MockPerson} />)
+        const homeworld = screen.getByTestId("person-homeworld");
+        expect(homeworld).toBeInTheDocument();
     });
 });
