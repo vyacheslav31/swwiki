@@ -11,7 +11,7 @@ import validatePageNumber from "../helpers/validatePageNumber";
 import Text from "antd/lib/typography/Text";
 import { SwapiResponse } from "../state/SwapiRequest/actions";
 
-interface SwapiResourcePageProps {
+export interface SwapiResourcePageProps {
   resourceType: string;
 }
 
@@ -40,7 +40,7 @@ const SwapiResourcePage: React.FC<SwapiResourcePageProps> = ({
     }
     setLoaded(true);
   }, [location, searchParams]);
-    
+
   return (
     <>
       <Title level={4} style={{ paddingTop: "2rem", paddingLeft: "1rem" }}>
@@ -52,6 +52,7 @@ const SwapiResourcePage: React.FC<SwapiResourcePageProps> = ({
       </Text>
       <Divider />
       {loaded && <><Pagination
+        data-testid={resourceType + "-pagination"}
         onChange={pageOnChangeHandler}
         current={currentPage}
         total={(data as SwapiResponse).count}

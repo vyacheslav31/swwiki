@@ -11,26 +11,26 @@ import {
 const Layout = () => {
   return (
     <Body style={{ minHeight: "100vh", overflow: "auto" }}>
-      <Header className="header">
-        <Menu mode="horizontal" theme="dark">
-          <Menu.Item key="home" icon={<HomeOutlined />}>
+      <Header data-testid="body-header" className="header">
+        <Menu data-testid="body-menu" mode="horizontal" theme="dark">
+          <Menu.Item data-testid="home-menuitem" key="home" icon={<HomeOutlined />}>
             <Link to="/">Home</Link>
           </Menu.Item>
-          <Menu.Item key="people" icon={<UserOutlined />}>
+          <Menu.Item data-testid="people-menuitem" key="people" icon={<UserOutlined />}>
             <Link to="/people?page=1">People</Link>
           </Menu.Item>
-          <Menu.Item key="films?page=1" icon={<CameraOutlined />}>
+          <Menu.Item data-testid="films-menuitem" key="films" icon={<CameraOutlined />}>
             <Link to="/films?page=1">Films</Link>
           </Menu.Item>
-          <Menu.Item key="planets" icon={<CloudFilled />}>
+          <Menu.Item data-testid="planets-menuitem" key="planets" icon={<CloudFilled />}>
             <Link to="/planets?page=1">Planets</Link>
           </Menu.Item>
         </Menu>
       </Header>
-      <Content className="site-layout-background" style={{ padding: "0 60px" }}>
+      <Content data-testid="body-content" className="site-layout-background" style={{ padding: "0 60px" }}>
         <Outlet />
       </Content>
-      <Footer style={{ textAlign: "center" }}>
+      <Footer data-testid="body-footer" style={{ textAlign: "center" }}>
         Copyright &copy; {new Date().getFullYear()} Vyacheslav Gorbov. All
         rights reserved.
       </Footer>
