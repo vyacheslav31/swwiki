@@ -1,3 +1,5 @@
+import SwapiResource from "../../types/SwapiResource";
+
 export enum SwapiRequestType {
   SWAPI_REQUEST_LOADING = "swapi_request_loading",
   SWAPI_REQUEST_SUCCESS = "swapi_request_success",
@@ -6,9 +8,9 @@ export enum SwapiRequestType {
 
 export type SwapiResponse = {
   count: number;
-  next: string | null;
-  previous: string | null;
-  results: any;
+  next?: string;
+  previous?: string;
+  results: SwapiResource[];
 };
 
 export interface SwapiRequestLoadingAction {

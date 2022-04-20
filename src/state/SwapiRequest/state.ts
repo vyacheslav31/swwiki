@@ -9,9 +9,9 @@ export interface SwapiRequestActionState {
 
 export const emptySwapiResponse: SwapiResponse = {
   count: 0,
-  next: null,
-  previous: null,
-  results: [],
+  next: undefined,
+  previous: undefined,
+  results: [] as SwapiResource[],
 };
 
 export const swapiRequestInitialState: SwapiRequestActionState = {

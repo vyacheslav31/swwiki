@@ -4,9 +4,8 @@ import SwapiResourceCard from "./SwapiResourceCard";
 import SwapiResource from "../../types/SwapiResource";
 
 interface CardListProps {
-  data: [SwapiResource];
+  data: SwapiResource[];
   resourceType: string;
-  loading: boolean;
 }
 
 const CardList: React.FC<CardListProps> = (

@@ -60,7 +60,6 @@ const SwapiResourcePage: React.FC<SwapiResourcePageProps> = ({
         style={{ padding: "20px" }}
       />
         <CardList
-          loading={loading}
           data={resources}
           resourceType={resourceType}
         />

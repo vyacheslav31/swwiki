@@ -12,7 +12,7 @@ const MockHome = () => {
 
 
 describe("test the Home component", () => {
-    test("make sure the title is rendered", () => {
+    test("make sure the home title is rendered and first letter capitalized", () => {
         render(<MockHome />);
         const h4Element = screen.getByRole('heading', { level: 4 });
         expect(h4Element).toBeInTheDocument();
