@@ -9,7 +9,7 @@ import ResourceTypes from "./types/ResourceTypes";
 
 /**
  * This is the main app component where all the routes are declared.
- * 
+ *
  * @version 1.0.0
  * @author [Vyacheslav Gorbov](https://github.com/vyacheslav31)
  * @returns The </App> component.

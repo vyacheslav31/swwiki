@@ -16,6 +16,9 @@ const MockSwapiResourceDetailsPage: React.FC<SwapiResourceDetailsPageProps> = ({
 };
 
 describe("test the SwapiResourcePage component", () => {
+  /**
+   * TODO: Tests below need to be moved to the individual detail components
+   */
   // test("should render person details page header", () => {
   //     render(<MockSwapiResourceDetailsPage resourceType={ResourceTypes.people} />);
   //     const headerEl = screen.getByTestId(ResourceTypes.people + "-details-header");

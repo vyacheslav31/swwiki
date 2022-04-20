@@ -12,39 +12,44 @@ const MockLayout = () => {
 };
 
 describe("test the Layout component", () => {
-  test("should render the all the layout skeleton elements", async () => {
+  test("should render the headers", async () => {
     render(<MockLayout />);
-    // should render the header
     const headerEl = screen.getByTestId("body-header");
-    await waitFor(() => {
-      expect(headerEl).toBeInTheDocument();
-    });
+    expect(headerEl).toBeInTheDocument();
+  });
 
-    // should render the menu
+  test("should render the menu", async () => {
+    render(<MockLayout />);
     const menuEl = screen.getByTestId("body-menu");
     expect(menuEl).toBeInTheDocument();
+  });
 
-    // should render the home menu item
+  test("should render the home menu item", async () => {
     const homeLinkEl = screen.getByTestId("home-menuitem");
     expect(homeLinkEl).toBeInTheDocument();
+  });
 
-    // should render the people menu item
+  test("should render the people menu item", async () => {
     const peopleLinkEl = screen.getByTestId("people-menuitem");
     expect(peopleLinkEl).toBeInTheDocument();
+  });
 
-    // should render the films menu item
+  test("should render the films menu item", async () => {
     const filmsLinkEl = screen.getByTestId("films-menuitem");
     expect(filmsLinkEl).toBeInTheDocument();
+  });
 
-    // should render the planets menu item
+  test("should render the planets menu item", async () => {
     const planetsLinkEl = screen.getByTestId("planets-menuitem");
     expect(planetsLinkEl).toBeInTheDocument();
+  });
 
-    // should render the content
+  test("should render the content", async () => {
     const contentEl = screen.getByTestId("body-content");
     expect(contentEl).toBeInTheDocument();
+  });
 
-    // should render the footer
+  test("should render the footer", async () => {
     const footerEl = screen.getByTestId("body-footer");
     expect(footerEl).toBeInTheDocument();
   });
