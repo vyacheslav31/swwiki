@@ -12,7 +12,7 @@ import SwapiResource from "../../types/SwapiResource";
  * @param {resourceType: string} The type of SWApi resource.
  */
 
-interface CardListProps {
+export interface CardListProps {
   data: SwapiResource[];
   resourceType: string;
 }
