@@ -1,7 +1,6 @@
-
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import App from "./App";
-import '@testing-library/jest-dom';
+import "@testing-library/jest-dom";
 
 describe("tests the application as a whole", () => {
   test("should render without crashing, and be able to click on a resource card", async () => {
@@ -14,9 +13,8 @@ describe("tests the application as a whole", () => {
     });
 
     // Get the resource cards
-    const filmCard = await screen.findByTestId('films-clicktest');
+    const filmCard = await screen.findByTestId("films-clicktest");
     // Click on a resource page
     fireEvent.click(filmCard);
   });
 });
-

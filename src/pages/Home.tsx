@@ -8,9 +8,17 @@ const Home = () => {
   for (const [k, v] of Object.entries(ResourceTypes)) {
     resourceTypeCards.push(
       <Col key={k}>
-        <Link data-testid={`home-to-${k}-card`} key={k + "Link"} to={`/${k}?page=1`}><Card data-testid={k + "-clicktest"} key={k + "Card"} hoverable>{v.toUpperCase()}</Card></Link>
+        <Link
+          data-testid={`home-to-${k}-card`}
+          key={k + "Link"}
+          to={`/${k}?page=1`}
+        >
+          <Card data-testid={k + "-clicktest"} key={k + "Card"} hoverable>
+            {v.toUpperCase()}
+          </Card>
+        </Link>
       </Col>
-    )
+    );
   }
   return (
     <>
