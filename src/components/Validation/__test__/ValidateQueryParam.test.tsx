@@ -17,7 +17,7 @@ const MockValidateQueryParam: React.FC<ValidateQueryParamProps> = ({
 };
 
 describe("tests the routing the application", () => {
-  test("should render without crashing, and be able to click on a resource card", async () => {
+  test("should render the validate queryParam component", async () => {
     render(<MockValidateQueryParam resourceType={ResourceTypes.films} />);
   });
 });
