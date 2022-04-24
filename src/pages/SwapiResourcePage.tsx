@@ -31,13 +31,20 @@ const SwapiResourcePage: React.FC<SwapiResourcePageProps> = ({
   const [searchParams, setSearchParams] = useSearchParams();
   const { state, dispatch } = useContext(SwapiRequestContext);
   const { loading, data } = state;
-  const resources = (data as SwapiResponse).results;
-  const currentPage = parseInt(searchParams.get("page")!);
-  const location = useLocation();
+  const [itemCount, setItemCount] = useState(1);
   const [loaded, setLoaded] = useState(false);
+  const { count, results: resources } = data as SwapiResponse;
+  const currentPage = parseInt(searchParams.get("page")!);
+  const location = useLocation().pathname;
   const pageOnChangeHandler = (newPageNumber: number) => {
     setSearchParams({ page: newPageNumber.toString() });
   };
+
+  useEffect(() => {
+    if (loaded && count > 0) {
+      setItemCount(count);
+    }
+  }, [data]);
 
   useEffect(() => {
     if (
@@ -61,16 +68,16 @@ const SwapiResourcePage: React.FC<SwapiResourcePageProps> = ({
         about them.
       </Text>
       <Divider />
-      {loaded && (
+      <Pagination
+        data-testid={resourceType + "-pagination"}
+        onChange={pageOnChangeHandler}
+        current={currentPage}
+        total={itemCount}
+        showSizeChanger={false}
+        style={{ padding: "20px" }}
+      />
+      {!loading && loaded && (
         <>
-          <Pagination
-            data-testid={resourceType + "-pagination"}
-            onChange={pageOnChangeHandler}
-            current={currentPage}
-            total={(data as SwapiResponse).count}
-            showSizeChanger={false}
-            style={{ padding: "20px" }}
-          />
           <CardList data={resources} resourceType={resourceType} />
         </>
       )}
